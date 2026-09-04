@@ -17,4 +17,4 @@ jobs:
           python-version: "3.13"
 
       - name: Executar programa Python
-        run: python teste.py
+        run: python salao_agendamento.py
