@@ -1,8 +1,3 @@
-"""
-Protótipo em Python — Sistema de Gestão de Agendamentos para Salões de Beleza
-
-"""
-
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
