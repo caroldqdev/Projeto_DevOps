@@ -1,0 +1,28 @@
+name: Upload Artifacts Action
+ 
+on:
+  push:
+ 
+jobs:
+  gerar-e-guardar-arquivos:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v6
+ 
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+ 
+      - name: Executar programa Python
+        run: python salao_agendamento.py
+ 
+      - name: Guardar arquivos gerados como artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: relatorio-e-dados
+          path: |
+            outputs/relatorio_metricas.txt
+            outputs/dados_agendamentos.json
