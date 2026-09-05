@@ -1,8 +1,3 @@
-"""
-Protótipo em Python — Sistema de Gestão de Agendamentos para Salões de Beleza
-
-"""
-
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
@@ -420,7 +415,7 @@ def demo() -> None:
     print("Taxa de ocupação:", sistema.taxa_ocupacao_por_funcionario())
 
     # Exportação de relatório e persistência (req. 15 e 19)
-    saida_dir = "/mnt/user-data/outputs"
+    saida_dir = os.environ.get("SALAO_OUTPUT_DIR", "outputs")
     os.makedirs(saida_dir, exist_ok=True)
     sistema.exportar_relatorio(os.path.join(saida_dir, "relatorio_metricas.txt"))
     sistema.salvar(os.path.join(saida_dir, "dados_agendamentos.json"))
